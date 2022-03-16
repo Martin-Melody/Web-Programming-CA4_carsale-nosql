@@ -1,7 +1,7 @@
-<!-- <button (click)="show = !show" >{{show ? 'Hide' : 'Add a car'}}</button>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-<div *ngIf="show"> -->
-    <div>
+<!-- <div>
     <form>
         <label>Make</label>
         <input type="text" name="make" placeholder="Enter Make" #make>
@@ -17,8 +17,70 @@
 
         <button type="submit" (click)="addTheCar(make.value,model.value,year.value,iamgeURL.value)">Add the Car</button>
     </form>
-</div>
+</div> -->
 
-<div class="conatiner">
-    <app-car *ngFor="let carData of carsData" [carData]="carData"></app-car>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-4">
+            <h1>Add a Car</h1>
+
+            <form action="">
+                <div class="form-group">
+                    <label for="fName">First Name</label>
+                    <input type="text" name="firstName" id="fName" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="LName">Last Name</label>
+                    <input type="text" name="lastName" id="LName" class="form-control">
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="make">Make</label>
+                            <input type="text" name="make" id="make" class="form-control" required #make>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="model">Model</label>
+                            <input type="text" name="model" id="model" class="form-control" required #model>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="year">Year</label>
+                            <input type="text" name="year" id="year" class="form-control" required #year>
+                        </div>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="form-group">
+                    <label for="imageUrl">Image URL</label>
+                    <input type="text" name="imageURL" id="imageURL" class="form-control" required #iamageURL>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit"
+                        (click)="addTheCar(make.value,model.value,year.value,iamageURL.value)">Submit</button>
+                </div>
+
+            </form>
+
+            
+
+
+        </div>
+        <div class="col-md-4">
+            <app-car *ngFor="let carData of carsData" [carData]="carData">
+            </app-car>
+        </div>
+        <div class="col-md-2">
+
+        </div>
+    </div>
 </div>

@@ -44,6 +44,15 @@ export class CarApiService {
     this.carsDataCollection.add(JSON.parse(JSON.stringify(car)));
   }
 
+  delCarData(carId:string):void{
+    this.carsData = this.carsDataCollection?.valueChanges({idField:'id'});
+    this.carsData?.subscribe((data) =>
+      console.log('getCarsData:+' + JSON.stringify(data))
+    );
+    this.carsDataCollection.doc(carId).delete();
+  }
+
+
   private handleError (err:HttpErrorResponse) {
     console.log('CarApiService: ' +err.message);
     return throwError(err.message);

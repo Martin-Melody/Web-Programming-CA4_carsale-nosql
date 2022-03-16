@@ -1,14 +1,17 @@
-<div class="conatiner">
-    <div class="row border">
-        {{carData.make}}
+
+
+<div class="CarContainer">
+    <div class="imgContainer" >
+        <img src="{{carData.imageURL}}" alt="{{carData.make}}">
     </div>
-    <div class="col-3">
-        {{carData.model}}
-    </div>
-    <div class="col-2">
-        {{carData.year}}
-    </div>
-    <div class="col-4">
-        <img src="{{carData.imageURL}}" [style.width.px]="carImageWidth"/>
+    <div class="TextConatiner">
+        <h2>{{carData.make}} {{carData.model}}</h2>
+        <h3>{{carData.year}}</h3>
+
     </div>
 </div>
+
+
+
+
+<!-- [style.width.px]="carImageWidth" -->

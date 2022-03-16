@@ -7,23 +7,33 @@ import { ThisReceiver } from '@angular/compiler';
   selector: 'app-carlist',
   templateUrl: './carlist.component.html',
   styleUrls: ['./carlist.component.css'],
-  providers: [CarApiService]
+  providers: [CarApiService],
 })
 export class CarlistComponent implements OnInit {
-  carsData!:ICar[];
+  carsData!: ICar[];
 
-  constructor(private _carAPIService:CarApiService) { }
+  constructor(private _carAPIService: CarApiService) {}
 
   ngOnInit(): void {
-    this._carAPIService.getCarData().subscribe(carsData =>
-      { this.carsData = carsData});
+    this._carAPIService.getCarData().subscribe((carsData) => {
+      this.carsData = carsData;
+    });
   }
 
-  addTheCar(make:string, model:string, year:string,imageURL:string):boolean{
-    let tempCar:ICar;
-    tempCar=new Car(make,model,year,imageURL);
+  addTheCar(
+    make: string,
+    model: string,
+    year: string,
+    imageURL: string
+  ): boolean {
+    let tempCar: ICar;
+    tempCar = new Car(make, model, year, imageURL);
     this._carAPIService.addCarData(tempCar);
     return false;
   }
 
+  // This shouldn't be here it should be in car.components.ts
+  deleteCar(carId: string) {
+    this._carAPIService.delCarData(carId);
+  }
 }
