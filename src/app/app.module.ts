@@ -8,11 +8,15 @@ import { environment } from "../environments/environment";
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 
 import {AngularFireModule} from '@angular/fire/compat';
+import { CarlistComponent } from './carlist/carlist.component';
+import { CarComponent } from './car/car.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CarlistComponent,
+    CarComponent
   ],
   imports: [
     BrowserModule,
