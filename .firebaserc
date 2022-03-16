@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "car-sales-application": {
+      "hosting": {
+        "carsale-nosql": [
+          "car-sales-application"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "car-sales-application"
+  }
+}

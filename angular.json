@@ -98,6 +98,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "carsale-nosql:build:production",
+            "firebaseProject": "car-sales-application",
+            "firebaseHostingSite": "car-sales-application"
+          }
         }
       }
     }
