@@ -1,4 +1,4 @@
-import { stringify } from 'querystring';
+// import { stringify } from 'querystring';
 
 export interface ICar{
     make:string;

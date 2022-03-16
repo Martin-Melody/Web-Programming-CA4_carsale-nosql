@@ -14,7 +14,7 @@ export class CarlistComponent implements OnInit {
 
   constructor(private _carAPIService:CarApiService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this._carAPIService.getCarData().subscribe(carsData =>
       { this.carsData = carsData});
   }

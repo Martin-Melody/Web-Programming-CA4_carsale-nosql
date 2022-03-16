@@ -1,1 +1,14 @@
-<p>car works!</p>
+<div class="conatiner">
+    <div class="row border">
+        {{carData.make}}
+    </div>
+    <div class="col-3">
+        {{carData.model}}
+    </div>
+    <div class="col-2">
+        {{carData.year}}
+    </div>
+    <div class="col-4">
+        <img src="{{carData.imageURL}}" [style.width.px]="carImageWidth"/>
+    </div>
+</div>
