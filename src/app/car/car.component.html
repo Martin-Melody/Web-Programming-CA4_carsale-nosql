@@ -1,17 +1,14 @@
-
-
 <div class="CarContainer">
-    <div class="imgContainer" >
-        <img src="{{carData.imageURL}}" alt="{{carData.make}}">
+    <div class="imgContainer">
+        <img class="carImg" src="{{carData.imageURL}}" alt="{{carData.make}}">
     </div>
     <div class="TextConatiner">
         <h2>{{carData.make}} {{carData.model}}</h2>
         <h3>{{carData.year}}</h3>
 
     </div>
+    <button (click)="deleteCar(carData.id)">Delete Car</button>
 </div>
 
 
 
-
-<!-- [style.width.px]="carImageWidth" -->

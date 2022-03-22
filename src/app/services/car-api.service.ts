@@ -45,7 +45,7 @@ export class CarApiService {
   }
 
   delCarData(carId:string):void{
-    this.carsData = this.carsDataCollection?.valueChanges({idField:'id'});
+    this.carsData = this.carsDataCollection.valueChanges({idField:'id'});
     this.carsData?.subscribe((data) =>
       console.log('getCarsData:+' + JSON.stringify(data))
     );

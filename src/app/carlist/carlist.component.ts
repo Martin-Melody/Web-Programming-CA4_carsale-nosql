@@ -33,7 +33,7 @@ export class CarlistComponent implements OnInit {
   }
 
   // This shouldn't be here it should be in car.components.ts
-  deleteCar(carId: string) {
-    this._carAPIService.delCarData(carId);
-  }
+//    deleteCar(carId: string) {
+//   this._carAPIService.delCarData(carId);
+//  }
 }
