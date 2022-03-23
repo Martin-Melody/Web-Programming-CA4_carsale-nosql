@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ICar } from '../interfaces/car';
 import { CarApiService } from '../services/car-api.service';
+import { ICar } from '../interfaces/car';
+
 
 @Component({
   selector: 'app-car',
@@ -23,7 +24,6 @@ export class CarComponent implements OnInit {
 
   deleteCar(carId:string){
     this._carAPIService.delCarData(carId);
-    
   }
 
 }

@@ -19,6 +19,9 @@
     </form>
 </div> -->
 
+<nav class="navbar navbar-light bg-dark">
+    <span class="navbar-brand mb-0 h1">S00211628</span>
+</nav>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2"></div>
@@ -63,15 +66,19 @@
                     <label for="imageUrl">Image URL</label>
                     <input type="text" name="imageURL" id="imageURL" class="form-control" required #iamageURL>
                 </div>
+                <div class="form-group">
+                    <label for="imageUrl">Id</label>
+                    <input type="text" name="ID" id="id" class="form-control" required #id>
+                </div>
 
                 <div class="form-group">
                     <button class="btn btn-primary" type="submit"
-                        (click)="addTheCar(make.value,model.value,year.value,iamageURL.value)">Submit</button>
+                        (click)="addTheCar(make.value,model.value,year.value,iamageURL.value,id.value)">Submit</button>
                 </div>
 
             </form>
 
-            
+
 
 
         </div>

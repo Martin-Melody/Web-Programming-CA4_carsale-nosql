@@ -24,16 +24,14 @@ export class CarlistComponent implements OnInit {
     make: string,
     model: string,
     year: string,
-    imageURL: string
+    imageURL: string,
+    id:string
   ): boolean {
     let tempCar: ICar;
-    tempCar = new Car(make, model, year, imageURL);
+    tempCar = new Car(make, model, year, imageURL,id);
     this._carAPIService.addCarData(tempCar);
     return false;
   }
 
-  // This shouldn't be here it should be in car.components.ts
-  deleteCar(carId: string) {
-    this._carAPIService.delCarData(carId);
-  }
+ 
 }

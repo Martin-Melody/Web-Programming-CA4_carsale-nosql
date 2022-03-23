@@ -10,51 +10,56 @@ import { ICar } from '../interfaces/car';
 import { jsonEval } from '@firebase/util';
 
 @Injectable()
-
-
 export class CarApiService {
-
   // Service wrapper around the native firestore SDK's
   // collectionReference and Query types.
-  carsDataCollection:AngularFirestoreCollection<ICar>;
+  carsDataCollection: AngularFirestoreCollection<ICar>;
 
   // Representation of any set of cars over any amount of time.
-  carsData!:Observable<ICar[]>;
+  carsData!: Observable<ICar[]>;
 
   // Array to hold all cars.
-  allCarsData!:ICar[];
+  allCarsData!: ICar[];
 
   // Error Message.
-  errorMessage!:string;
+  errorMessage!: string;
 
-  constructor(private _http:HttpClient, private _afs:AngularFirestore) {
+  constructor(private _http: HttpClient, private _afs: AngularFirestore) {
     // Connect to the Database.
-    this.carsDataCollection=_afs.collection<ICar>("cars_data");
+    this.carsDataCollection = _afs.collection<ICar>('cars_data');
   }
 
-  getCarData():Observable<ICar[]> {
+  getCarData(): Observable<ICar[]> {
     this.carsData = this.carsDataCollection?.valueChanges();
-    this.carsData?.subscribe(
-      data => console.log("getCarsData:+" + JSON.stringify(data))
-    )
-    return this.carsData;
-  }
-
-  addCarData(car:ICar): void {
-    this.carsDataCollection.add(JSON.parse(JSON.stringify(car)));
-  }
-
-  delCarData(carId:string):void{
-    this.carsData = this.carsDataCollection?.valueChanges({idField:'id'});
     this.carsData?.subscribe((data) =>
       console.log('getCarsData:+' + JSON.stringify(data))
     );
-    this.carsDataCollection.doc(carId).delete();
+    return this.carsData;
   }
 
+  addCarData(car: ICar): void {
+    this.carsDataCollection.add(JSON.parse(JSON.stringify(car)));
+  }
 
-  private handleError (err:HttpErrorResponse) {
-    console.log('CarApiService: ' +err.message);
+  // delCarData(carId: string) {
+  //   this.carsData = this.carsDataCollection.valueChanges({ idField: 'CarID' });
+  //   this.carsDataCollection.doc(carId).delete();
+  // }
+
+  delCarData(carId:string): void {
+    let dataHolder;
+    this.carsData = this.carsDataCollection?.valueChanges({ idField: 'Id' });
+    this.carsData.forEach(
+      
+    )
+    // console.log(this.carsData.subscribe((data =>  JSON.stringify(data))));
+    this.carsDataCollection.doc(carId).delete();
+
+    console.log(JSON.stringify(dataHolder));
+  }
+
+  private handleError(err: HttpErrorResponse) {
+    console.log('CarApiService: ' + err.message);
     return throwError(err.message);
   }
 }
