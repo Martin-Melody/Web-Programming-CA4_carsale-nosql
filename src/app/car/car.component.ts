@@ -22,8 +22,8 @@ export class CarComponent implements OnInit {
   }
 
 
-  deleteCar(carId:string){
-    this._carAPIService.delCarData(carId);
-  }
+  // deleteCar(carId:string){
+  //   this._carAPIService.delCarData(carId);
+  // }
 
 }

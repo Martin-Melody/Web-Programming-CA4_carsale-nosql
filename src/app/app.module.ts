@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -15,6 +16,7 @@ import { CarComponent } from './car/car.component';
 import { HttpClientModule } from "@angular/common/http";
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
+import { collection, addDoc } from "firebase/firestore";
 
 @NgModule({
   declarations: [
