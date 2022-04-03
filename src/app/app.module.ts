@@ -27,7 +27,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     AppRoutingModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

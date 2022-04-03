@@ -28,9 +28,10 @@ box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30p
 
 
 .carImg{
+    overflow: hidden;
     width: 100%;
 }
 
 h1,h2,h3,h4,p, label{
     color: var(--text-color);
-}
+}   

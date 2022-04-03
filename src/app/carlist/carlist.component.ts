@@ -25,10 +25,9 @@ export class CarlistComponent implements OnInit {
     model: string,
     year: string,
     imageURL: string,
-    id:string
   ): boolean {
     let tempCar: ICar;
-    tempCar = new Car(make, model, year, imageURL,id);
+    tempCar = new Car(make, model, year, imageURL);
     this._carAPIService.addCarData(tempCar);
     return false;
   }

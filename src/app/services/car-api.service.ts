@@ -3,17 +3,19 @@ import { HttpClient, HttpErrorResponse, JsonpClientBackend } from '@angular/comm
 import { observable, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { collection, doc, setDoc, deleteDoc } from 'firebase/firestore';
 
 import { AngularFirestore, AngularFirestoreCollection } from "@angular/fire/compat/firestore";
 
-import { ICar } from '../interfaces/car';
+import { Car, ICar } from '../interfaces/car';
 import { jsonEval } from '@firebase/util';
 
 @Injectable()
 export class CarApiService {
   // Service wrapper around the native firestore SDK's
   // collectionReference and Query types.
-  carsDataCollection: AngularFirestoreCollection<ICar>;
+  private carsDataCollection: AngularFirestoreCollection<ICar>;
+  items!:Observable<ICar[]>;
 
   // Representation of any set of cars over any amount of time.
   carsData!: Observable<ICar[]>;
@@ -24,9 +26,13 @@ export class CarApiService {
   // Error Message.
   errorMessage!: string;
 
+ 
+
+
   constructor(private _http: HttpClient, private _afs: AngularFirestore) {
     // Connect to the Database.
     this.carsDataCollection = _afs.collection<ICar>('cars_data');
+    this.items = this.carsDataCollection.valueChanges({idField:'id'});
   }
 
   getCarData(): Observable<ICar[]> {
@@ -46,17 +52,11 @@ export class CarApiService {
   //   this.carsDataCollection.doc(carId).delete();
   // }
 
-  delCarData(carId:string): void {
-    let dataHolder;
-    this.carsData = this.carsDataCollection?.valueChanges({ idField: 'Id' });
-    this.carsData.forEach(
-      
-    )
-    // console.log(this.carsData.subscribe((data =>  JSON.stringify(data))));
-    this.carsDataCollection.doc(carId).delete();
+  // delCarData(carId:string) {  
 
-    console.log(JSON.stringify(dataHolder));
-  }
+  //  const id : ICar = {}
+
+  // }
 
   private handleError(err: HttpErrorResponse) {
     console.log('CarApiService: ' + err.message);
